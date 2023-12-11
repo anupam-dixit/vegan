@@ -1,47 +1,47 @@
 # codemagic.yaml
 
-# Define the workflow
+# Define the workflows
 workflows:
   version: 2
 
   # Build configuration for iOS
   ios:
-    # Specify the workflow name
-    name: Build and Deploy iOS
-
-    # Trigger the workflow on each push to the main branch
+    name: Build iOS
     script:
-      - name: Build
+      - name: Install Dependencies
         script: |
-          # Install dependencies and build the app
           npm install
+          npm install -g ionic@latest
+          npm install -g cordova@latest
+
+      - name: Build iOS
+        script: |
+          ionic cordova prepare ios
           ionic build --prod
 
-          # Move the necessary files to the iOS build directory
-          cp -R platforms/ios/* $CM_BUILD_DIR/ios
-
-      - name: Archive
+      - name: Archive iOS
         script: |
-          # Archive the iOS project
-          cd $CM_BUILD_DIR/ios
-          xcodebuild -workspace YourApp.xcworkspace -scheme YourApp -configuration Release -archivePath YourApp.xcarchive archive
+          ionic build ios --release
+          ionic capacitor copy ios
 
-      - name: Export
+      - name: Xcode Build
         script: |
-          # Export the archive to an IPA file
-          xcodebuild -exportArchive -archivePath YourApp.xcarchive -exportOptionsPlist exportOptions.plist -exportPath $CM_BUILD_DIR/ios
+          cd ios
+          xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -archivePath App.xcarchive archive
 
-    artifacts:
-      # Specify the path to the IPA file
-      - build/ios/*.ipa
+  # Build configuration for Android
+  android:
+    name: Build Android
+    script:
+      - name: Install Dependencies
+        script: |
+          npm install
+          npm install -g ionic@latest
+          npm install -g cordova@latest
 
-# You can define additional workflows for Android, testing, etc.
-# ...
+      - name: Build Android
+        script: |
+          ionic cordova prepare android
+          ionic build --prod
 
-# Environment variables that can be used in the script
-environment:
-  vars:
-    - CM_BUILD_DIR: "$HOME/codemagic-build"
-
-# Define global configuration options
-# ...
+      - name: A
