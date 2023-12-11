@@ -2,7 +2,7 @@
 
 # Define the workflows
 workflows:
-  version: 2
+  version: 1
 
   # Build configuration for iOS
   ios:
