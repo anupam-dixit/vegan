@@ -1,0 +1,64 @@
+PODS:
+  - Capacitor (5.0.3):
+    - CapacitorCordova
+  - CapacitorApp (5.0.2):
+    - Capacitor
+  - CapacitorBrowser (5.0.2):
+    - Capacitor
+  - CapacitorCamera (5.0.2):
+    - Capacitor
+  - CapacitorCordova (5.0.3)
+  - CapacitorHaptics (5.0.2):
+    - Capacitor
+  - CapacitorKeyboard (5.0.2):
+    - Capacitor
+  - CapacitorStatusBar (5.0.2):
+    - Capacitor
+  - CordovaPlugins (5.0.3):
+    - CapacitorCordova
+
+DEPENDENCIES:
+  - "Capacitor (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorApp (from `../../node_modules/@capacitor/app`)"
+  - "CapacitorBrowser (from `../../node_modules/@capacitor/browser`)"
+  - "CapacitorCamera (from `../../node_modules/@capacitor/camera`)"
+  - "CapacitorCordova (from `../../node_modules/@capacitor/ios`)"
+  - "CapacitorHaptics (from `../../node_modules/@capacitor/haptics`)"
+  - "CapacitorKeyboard (from `../../node_modules/@capacitor/keyboard`)"
+  - "CapacitorStatusBar (from `../../node_modules/@capacitor/status-bar`)"
+  - CordovaPlugins (from `../capacitor-cordova-ios-plugins`)
+
+EXTERNAL SOURCES:
+  Capacitor:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorApp:
+    :path: "../../node_modules/@capacitor/app"
+  CapacitorBrowser:
+    :path: "../../node_modules/@capacitor/browser"
+  CapacitorCamera:
+    :path: "../../node_modules/@capacitor/camera"
+  CapacitorCordova:
+    :path: "../../node_modules/@capacitor/ios"
+  CapacitorHaptics:
+    :path: "../../node_modules/@capacitor/haptics"
+  CapacitorKeyboard:
+    :path: "../../node_modules/@capacitor/keyboard"
+  CapacitorStatusBar:
+    :path: "../../node_modules/@capacitor/status-bar"
+  CordovaPlugins:
+    :path: "../capacitor-cordova-ios-plugins"
+
+SPEC CHECKSUMS:
+  Capacitor: 304a960e431f9e6f78556554ca71c41c1b2b9680
+  CapacitorApp: 28fef1fd75b2b3686e875216806fb8416d421097
+  CapacitorBrowser: 7986ee35377383fc40f7c1a0a793e0d9a49fe527
+  CapacitorCamera: 15face5f9e030e480929a2c989deaaf3eb0d3947
+  CapacitorCordova: def732a63679698df6fb392bbe6d269a0b61e937
+  CapacitorHaptics: 864585542a435bd41eaabf7f30d9ff5ec03024d3
+  CapacitorKeyboard: e628d4e66d621c69e449945ebabded17c5b9c2e8
+  CapacitorStatusBar: 48f2899f6846cc7d8431b251ebfc58e1c10e3d58
+  CordovaPlugins: 37e3a5a5c3652b98475070f4acb15823cee4ef2c
+
+PODFILE CHECKSUM: 8e0bb5aa6338b1d2cf9f523267d972703e22b19d
+
+COCOAPODS: 1.11.3
