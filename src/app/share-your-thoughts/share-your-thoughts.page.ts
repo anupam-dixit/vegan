@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api/api.service';
 import { Router } from '@angular/router';
 import { OtherService } from '../service/other/other.service';
-// import { Camera, CameraResultType } from '@capacitor/camera';
+import { Camera, CameraResultType } from '@capacitor/camera';
 import { ActionSheetController, LoadingController } from '@ionic/angular';
 import {environment} from "../../environments/environment";
 
@@ -87,11 +87,11 @@ export class ShareYourThoughtsPage implements OnInit {
   // }
 
   async captureImage() {
-    // const image = await Camera.getPhoto({
-    //   quality: 90,
-    //   allowEditing: true,
-    //   resultType: CameraResultType.Base64
-    // });
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Base64
+    });
 
     // image.webPath will contain a path that can be set as an image src.
     // You can access the original file using image.path, which can be
@@ -113,8 +113,8 @@ export class ShareYourThoughtsPage implements OnInit {
 // // Create a File object from the Blob
 //     const file = new File([blob], 'filename.png', { type: 'image/png' });
 //
-//     this.form.file_extension=image.format
-//     this.form.create_post_image = image.base64String
+    this.form.file_extension=image.format
+    this.form.create_post_image = image.base64String
   }
 
   protected readonly environment = environment;
