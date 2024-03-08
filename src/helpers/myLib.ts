@@ -6,5 +6,5 @@ export const myLib = {
     is:function () {
       return (localStorage.getItem('userData')!==null&&localStorage.getItem('userData')!=='')
     }
-  }
+  },
 };

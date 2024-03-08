@@ -58,12 +58,42 @@
       <ion-icon name="create" style="color: #000;"></ion-icon>
     </button>
   </section>
+  <section>
+    <div class="row" *ngIf="subscription?.subscription">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            Your Subscription
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 col-sm-4 col-md-3 col-lg-3 col-xl-2">
+                <img class="img-fluid" [src]="subscription?.subscription.icon">
+              </div>
+              <div class="col">
+                <h5>{{subscription?.subscription.title}} Plan</h5>
+                <div class="" *ngIf="subscription?.purchase?.status">
+                  <h5>Expiry <span class="badge badge-warning">
+                    {{subscription?.purchase.expire_at}}
+                  </span>
+                  </h5>
+                </div>
+                <div class="text-right">
+                  <button class="actions__btn actions__btn--active" [routerLink]="['/my-subscription']">Details</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="stories">
     <div *ngFor="let data of profileData?.userfriend" [routerLink]="['/menu/public-profile',data?.id]"
       class="stories__single">
       <div class="stories__single__img-holder">
         <div class="stories__single__img-holder__inner">
-          <img src="https://hello-vegans.com/{{data.profile_image}}">
+          <img src="{{environment.liveDomain+data.profile_image}}">
         </div>
       </div>
       <p class="stories__single__description">{{data.name | titlecase}}</p>

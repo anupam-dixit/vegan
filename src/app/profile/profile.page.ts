@@ -3,6 +3,8 @@ import { ApiService } from '../service/api/api.service';
 import { OtherService } from '../service/other/other.service';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import {myLib} from "../../helpers/myLib";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-profile',
@@ -23,6 +25,7 @@ export class ProfilePage implements OnInit {
   hideShowState: any;
   comments: any;
   photos: any;
+  subscription:any
   constructor(private api: ApiService, private router: Router, private other: OtherService, private loadingCtrl: LoadingController) { }
 
   ngOnInit() {
@@ -32,6 +35,12 @@ export class ProfilePage implements OnInit {
     // })
     // this.profile(JSON.parse(localStorage.getItem('userData'))?.id);
     // this.postData()
+    let data = {
+      user_id: myLib.auth.get().id
+    }
+    this.api.getMySubscription(data).subscribe(res => {
+      this.subscription=res
+    })
   }
 
   ionViewWillEnter() {
@@ -69,7 +78,6 @@ export class ProfilePage implements OnInit {
     }
     this.api.profilePost(data).subscribe(res => {
       this.posts = res;
-      console.log(res);
     })
   }
   photosData(){
@@ -80,9 +88,8 @@ export class ProfilePage implements OnInit {
     }
     this.api.profilePhoto(data).subscribe(res => {
       this.photos = res;
-      console.log(res);
     })
-    
+
   }
   addComment(e) {
     this.message = e.target.value;
@@ -195,4 +202,6 @@ export class ProfilePage implements OnInit {
     })
   }
 
+  protected readonly JSON = JSON;
+  protected readonly environment = environment;
 }

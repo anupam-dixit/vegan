@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {SubscriptionLimiterGuard} from "./guards/subscription-limiter/subscription-limiter.guard";
 
 const routes: Routes = [
   {
@@ -65,6 +66,7 @@ const routes: Routes = [
   },
   {
     path: 'add-blog',
+    canActivate:[SubscriptionLimiterGuard],
     loadChildren: () => import('./add-blog/add-blog.module').then( m => m.AddBlogPageModule)
   },
   {
@@ -73,6 +75,7 @@ const routes: Routes = [
   },
   {
     path: 'add-recipe',
+    canActivate:[SubscriptionLimiterGuard],
     loadChildren: () => import('./add-recipe/add-recipe.module').then( m => m.AddRecipePageModule)
   },
   {
@@ -86,6 +89,14 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'my-subscription',
+    loadChildren: () => import('./my-subscription/my-subscription.module').then( m => m.MySubscriptionPageModule)
+  },
+  {
+    path: 'limit-exceed',
+    loadChildren: () => import('./error/limit-exceed/limit-exceed.module').then( m => m.LimitExceedPageModule)
   },
 ];
 

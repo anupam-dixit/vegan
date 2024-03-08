@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MenuPage } from './menu.page';
+import {SubscriptionLimiterGuard} from "../guards/subscription-limiter/subscription-limiter.guard";
 
 const routes: Routes = [
    {
@@ -54,6 +55,7 @@ const routes: Routes = [
       },
       {
         path: 'share-your-thoughts',
+        canActivate:[SubscriptionLimiterGuard],
         loadChildren: () => import('../share-your-thoughts/share-your-thoughts.module').then( m => m.ShareYourThoughtsPageModule)
       },
       {

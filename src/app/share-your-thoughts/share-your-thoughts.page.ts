@@ -5,6 +5,7 @@ import { OtherService } from '../service/other/other.service';
 import { Camera, CameraResultType } from '@capacitor/camera';
 import { ActionSheetController, LoadingController } from '@ionic/angular';
 import {environment} from "../../environments/environment";
+import {myLib} from "../../helpers/myLib";
 
 @Component({
   selector: 'app-share-your-thoughts',
@@ -20,7 +21,16 @@ export class ShareYourThoughtsPage implements OnInit {
     file_extension: null
   }
   profilePhoto = JSON.parse(localStorage.getItem('userData')).profile_image;
-  constructor(private api: ApiService, private router: Router, private other: OtherService, private actionSheetController: ActionSheetController, private loadingCtrl: LoadingController) { }
+  mySub=null
+  constructor(private api: ApiService, private router: Router, private other: OtherService, private actionSheetController: ActionSheetController, private loadingCtrl: LoadingController) {
+    // this.api.getMySubscription({user_id: myLib.auth.get().id}).pipe().subscribe(d=>{
+    //   this.mySub=d
+    //   if (this.mySub.subscription.data.post>this.mySub.usage.post){
+    //   } else {
+    //     this.router.navigateByUrl('/limit-exceed')
+    //   }
+    // })
+  }
 
   ngOnInit() {
   }

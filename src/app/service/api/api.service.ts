@@ -257,4 +257,10 @@ export class ApiService {
     return this.http.post(environment.baseUrl + '/pages?pageName=contactInsert', data);
   }
 
+  getMySubscription(data:any){
+    return this.http.post(environment.baseUrl + '/getMySubscription', data);
+  }
+  post(url:string,data:any){
+    return this.http.post(url, data);
+  }
 }

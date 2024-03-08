@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  liveDomain:'https://veganlife.today/',
-  baseUrl:'https://veganlife.today/ApiController'
+  liveDomain:'https://vegan.godigitaldaddy.co.in/',
+  baseUrl:'https://vegan.godigitaldaddy.co.in/ApiController'
 };
